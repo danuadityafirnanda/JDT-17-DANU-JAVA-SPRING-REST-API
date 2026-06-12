@@ -1,3 +1,21 @@
 spring:
   application:
     name: jdt17.spring.rest.api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jdt17_api
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
+
+bank:
+  transfer:
+    admin-fee: 2500

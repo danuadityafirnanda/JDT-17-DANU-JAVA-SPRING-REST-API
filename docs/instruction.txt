@@ -1,0 +1,40 @@
+mini app mbanking
+
+ada beberapa case seperti customer
+
+customer bisa memiliki account
+fungsinya si acoount ini bisa dibuat, melihat saldo, top up saldo, transfer(transfer ada 2 tipe ada sender atau receiver), mengurangi saldo (witdraw),
+
+ada 1 tabel 1 namanya transkasi tabel yang menyimpan history transaksi dari semua transaksi customer
+
+bisa menampilkan history transaksi customer
+
+account terdapat
+id
+account number (uniqe)
+balance
+customer_id
+
+untuk transaktion
+transcation type buat enum (toup, transfer, (seperti diatas))
+amount
+transacion date
+source account
+destination account
+(validasi harus dibuat didetail, misal saldo kurang harus tidak bisa withdraw, transfer atau lainnya)
+transfer harus divalidasi juga akunnya ada atau ngga, rekening source ada atau ngga, rekening targetnya ada atau ngga, saldo pengirimanya harus cukup, minimal transfer 10 ribu
+
+1 customer bisa memiliki beberapa account
+
+untuk ambil data account ambil menggunakan pagination
+ambil transaksinya bisa ambil semua transaksi serta bisa juga tergantug jenis transaksinya
+dalam transaksi juga terdapat 2 record misal record untuk penerima saldo dan record untuk pengrim (masih dalam 1 tabel yang sama)
+
+lebih baik untuk master tabble guanakan format nama mst_nama-tabel
+
+per account ada attribute pin
+
+ada endpoint yang mengverifikasi untuk pin, jika salah 3 kali maka account kena banned, maka dari itu harus ada parameter baru yaitu account status
+setiap kesalahan dicatat di tabel (tabel login history)
+
+(best practice penamaan primary key, pakai nama-tabel_id )
